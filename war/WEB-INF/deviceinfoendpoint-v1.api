@@ -25,20 +25,6 @@
     "maxAge" : 0
   },
   "methods" : {
-    "deviceinfoendpoint.listDeviceInfo" : {
-      "path" : "deviceinfo",
-      "httpMethod" : "GET",
-      "rosyMethod" : "DeviceInfoEndpoint.listDeviceInfo",
-      "request" : {
-        "parameters" : {
-        },
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "deviceinfoendpoint.getDeviceInfo" : {
       "path" : "deviceinfo/{id}",
       "httpMethod" : "GET",
@@ -49,6 +35,20 @@
             "required" : true,
             "type" : "string"
           }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "deviceinfoendpoint.listDeviceInfo" : {
+      "path" : "deviceinfo",
+      "httpMethod" : "GET",
+      "rosyMethod" : "DeviceInfoEndpoint.listDeviceInfo",
+      "request" : {
+        "parameters" : {
         },
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -129,15 +129,15 @@
       }
     },
     "methods" : {
+      "DeviceInfoEndpoint.getDeviceInfo" : {
+        "response" : {
+          "$ref" : "DeviceInfo"
+        }
+      },
       "DeviceInfoEndpoint.listDeviceInfo" : {
         "response" : {
           "type" : "object",
           "$ref" : "DeviceInfos"
-        }
-      },
-      "DeviceInfoEndpoint.getDeviceInfo" : {
-        "response" : {
-          "$ref" : "DeviceInfo"
         }
       },
       "DeviceInfoEndpoint.insertDeviceInfo" : {
