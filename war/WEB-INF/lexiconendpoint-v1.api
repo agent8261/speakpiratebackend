@@ -1,0 +1,163 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://myapp.appspot.com/_ah/api",
+  "name" : "lexiconendpoint",
+  "version" : "v1",
+  "description" : "",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "http://myapp.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "lexiconendpoint.listLexicon" : {
+      "path" : "lexicon",
+      "httpMethod" : "GET",
+      "rosyMethod" : "LexiconEndpoint.listLexicon",
+      "request" : {
+        "parameters" : {
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "lexiconendpoint.getLexicon" : {
+      "path" : "lexicon/{id}",
+      "httpMethod" : "GET",
+      "rosyMethod" : "LexiconEndpoint.getLexicon",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "required" : true,
+            "type" : "string"
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "lexiconendpoint.insertLexicon" : {
+      "path" : "lexicon",
+      "httpMethod" : "POST",
+      "rosyMethod" : "LexiconEndpoint.insertLexicon",
+      "request" : {
+        "parameters" : {
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "lexiconendpoint.updateLexicon" : {
+      "path" : "lexicon",
+      "httpMethod" : "PUT",
+      "rosyMethod" : "LexiconEndpoint.updateLexicon",
+      "request" : {
+        "parameters" : {
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "lexiconendpoint.removeLexicon" : {
+      "path" : "lexicon/{id}",
+      "httpMethod" : "DELETE",
+      "rosyMethod" : "LexiconEndpoint.removeLexicon",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "required" : true,
+            "type" : "string"
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Lexicon" : {
+        "id" : "Lexicon",
+        "type" : "object",
+        "properties" : {
+        }
+      },
+      "Lexicons" : {
+        "id" : "Lexicons",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Lexicon"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "LexiconEndpoint.listLexicon" : {
+        "response" : {
+          "type" : "object",
+          "$ref" : "Lexicons"
+        }
+      },
+      "LexiconEndpoint.getLexicon" : {
+        "response" : {
+          "$ref" : "Lexicon"
+        }
+      },
+      "LexiconEndpoint.insertLexicon" : {
+        "request" : {
+          "$ref" : "Lexicon"
+        },
+        "response" : {
+          "$ref" : "Lexicon"
+        }
+      },
+      "LexiconEndpoint.updateLexicon" : {
+        "request" : {
+          "$ref" : "Lexicon"
+        },
+        "response" : {
+          "$ref" : "Lexicon"
+        }
+      },
+      "LexiconEndpoint.removeLexicon" : {
+        "response" : {
+          "$ref" : "Lexicon"
+        }
+      }
+    }
+  }
+}

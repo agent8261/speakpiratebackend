@@ -1,0 +1,2 @@
+serviceClass: com.speakpirate.client.WebFrontSrvc
+path: AEDFB77C377F31454EC4183EFDD0C533.gwt.rpc

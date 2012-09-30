@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <!-- Default page to serve  webfrontend -->
+  <welcome-file-list>
+    <welcome-file>ProjectName.html</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>WebFrontSrvc</servlet-name>
+    <servlet-class>com.speakpirate.server.WebFrontSrvcImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>WebFrontSrvc</servlet-name>
+    <!-- <url-pattern>/modoule_Name/RemoteServiceRelativePath</url-pattern> -->
+    <url-pattern>/speakpirate/webfrontend</url-pattern>
+  </servlet-mapping>
+          
+ <servlet>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+  <init-param>
+   <param-name>services</param-name>
+   <param-value>com.speakpirate.DeviceInfoEndpoint,com.speakpirate.server.LexiconEndpoint</param-value>
+  </init-param>
+ </servlet>
+ 
+ <servlet-mapping>
+  <servlet-name>SystemServiceServlet</servlet-name>
+  <url-pattern>/_ah/spi/*</url-pattern>
+ </servlet-mapping>
+ 
+</web-app>
