@@ -61,7 +61,15 @@
  "schemas": {
   "Lexicon": {
    "id": "Lexicon",
-   "type": "object"
+   "type": "object",
+   "properties": {
+    "engText": {
+     "type": "string"
+    },
+    "pirateText": {
+     "type": "string"
+    }
+   }
   },
   "Lexicons": {
    "id": "Lexicons",

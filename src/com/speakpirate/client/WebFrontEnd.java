@@ -107,7 +107,7 @@ public class WebFrontEnd implements EntryPoint
 	//===========================================================================	
 	private void updateTable(Lexicon lexi)
 	{
-		String engText = lexi.engText, pirateText = lexi.pirateText;
+		String engText = lexi.getengText(), pirateText = lexi.getpirateText();
 		if(flexIndex.contains(engText))
 		{  return;  }
 		int row = flexTable.getRowCount();

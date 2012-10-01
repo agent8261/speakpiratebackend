@@ -110,6 +110,12 @@
         "id" : "Lexicon",
         "type" : "object",
         "properties" : {
+          "engText" : {
+            "type" : "string"
+          },
+          "pirateText" : {
+            "type" : "string"
+          }
         }
       },
       "Lexicons" : {
